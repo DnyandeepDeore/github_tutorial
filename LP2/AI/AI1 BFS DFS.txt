@@ -1,0 +1,72 @@
+
+---------------BFS--------------------
+
+
+
+graph = {
+  'A': ['B', 'C', "D"],
+  'B': ['E', "F"],
+  'C': ['G', "I"],
+  'D': ["I"],
+  'E': [],
+  "F": [],
+  'G': [],
+  "I": []
+}
+def bfs(visit_complete, graph, current_node):
+    visit_complete.append(current_node)
+    queue = []
+    queue.append(current_node)
+    while queue: 
+        s = queue.pop(0)
+        print(s)
+        for neighbour in graph[s]:
+            if neighbour not in visit_complete:
+                visit_complete.append(neighbour)
+                queue.append(neighbour)
+bfs([], graph, 'A')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------DFS--------------------------------
+
+
+
+# Using a Python dictionary to act as an adjacency list
+graph = {
+  '5' : ['3','7'],
+  '3' : ['2', '4'],
+  '7' : ['8'],
+  '2' : [],
+  '4' : ['8'],
+  '8' : []
+}
+visited = set() # Set to keep track of visited nodes of graph.
+
+def dfs(visited, graph, node): #function for dfs 
+    if node not in visited:
+        print (node)
+        visited.add(node)
+        for neighbour in graph[node]:
+            dfs(visited, graph, neighbour)
+            
+# Driver Code
+print("Following is the Depth-First Search")
+dfs(visited, graph, '5')
